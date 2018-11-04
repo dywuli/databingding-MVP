@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="radio.media.eva.auto.vm.myapplication.view.MainActivity">
+
+    <data>
+
+        <import type="radio.media.eva.auto.vm.myapplication.model.User" />
+        <import type="radio.media.eva.auto.vm.myapplication.EventListener"/>
+        <import type="radio.media.eva.auto.vm.myapplication.model.TemperatureData"/>
+
+        <variable
+            name="content"
+            type="String" />
+
+        <variable
+            name="textContent"
+            type="String" />
+
+        <variable
+            name="user"
+            type="radio.media.eva.auto.vm.myapplication.model.User" />
+        <variable
+            name="event"
+            type="EventListener"/>
+        <variable
+            name="temp"
+            type="radio.media.eva.auto.vm.myapplication.model.TemperatureData"/>
+        <variable
+            name="presenter"
+            type="radio.media.eva.auto.vm.myapplication.presenter.MainActivityPresenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{content}" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{textContent}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.btnName}" />
+
+            <TextView
+                android:id="@+id/textUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{user.textName}" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="btnEvent01"
+                android:onClick="@{event.click1}"/>
+            <Button
+                android:id="@+id/btnEvent1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="btnEvent02"
+                android:onClick="@{event::click2}"/>
+
+            <TextView
+                android:id="@+id/textEvent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="btnEvent03"
+                android:onClick="@{()->event.cilck3(user.textName)}"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnObservable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="btnObservable"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={temp.location}"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@={temp.celsius}"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@={temp.celsius}" />
+
+            <Button
+                android:text="Show data model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> presenter.onShowData(temp)}"
+                android:id="@+id/button" />
+            <Button
+                android:text="Start second activity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> presenter.showList()}"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
