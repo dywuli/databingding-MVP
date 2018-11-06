@@ -43,7 +43,7 @@ public class MyAdapter extends MyBaseAdapter<MyAdapter.MyViewHolder> {
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public MyAdapter(List<TemperatureData> myDataset) {
-        data = myDataset;
+        data.addAll(myDataset);
     }
     @Override
     public Object getDataAtPosition(int position) {
