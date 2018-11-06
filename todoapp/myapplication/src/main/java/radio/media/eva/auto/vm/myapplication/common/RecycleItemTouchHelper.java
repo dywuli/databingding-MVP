@@ -122,9 +122,11 @@ public class RecycleItemTouchHelper extends ItemTouchHelper.Callback{
      */
     @Override
     public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        if (helperCallback.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)) {
+            return;
+        }
         //滑动时自己实现背景及图片
         if (actionState== ItemTouchHelper.ACTION_STATE_SWIPE){
-
             //dX大于0时向右滑动，小于0向左滑动
             View itemView=viewHolder.itemView;//获取滑动的view
             Resources resources= mContext.getResources();
@@ -180,5 +182,6 @@ public class RecycleItemTouchHelper extends ItemTouchHelper.Callback{
     public interface ItemTouchHelperCallback{
         void onItemDelete(int positon);
         void onMove(int fromPosition, int toPosition);
+        boolean onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive);
     }
 }

@@ -2,6 +2,7 @@ package radio.media.eva.auto.vm.myapplication.common;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -81,5 +82,10 @@ public abstract class MyBaseAdapter<T extends MyBaseAdapter.MyViewHolder> extend
     public abstract Object getDataAtPosition(int position);
 
     public abstract int getLayoutIdForType(int viewType);
+    
+    @Override
+    public boolean onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        return false;
+    }
 
 }
