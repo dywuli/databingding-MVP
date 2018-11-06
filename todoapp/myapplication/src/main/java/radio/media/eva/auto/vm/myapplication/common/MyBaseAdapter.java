@@ -18,7 +18,7 @@ import java.lang.reflect.WildcardType;
  * Created by liwu on 18-11-2.
  */
 
-public abstract class MyBaseAdapter<T extends MyBaseAdapter.MyViewHolder> extends RecyclerView.Adapter<T> {
+public abstract class MyBaseAdapter<T extends MyBaseAdapter.MyViewHolder> extends RecyclerView.Adapter<T> implements RecycleItemTouchHelper.ItemTouchHelperCallback{
 
     // Provide a reference to the views for each data item
 // Complex data items may need more than one view per item, and

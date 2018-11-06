@@ -43,4 +43,7 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
     androidTestCompile "com.android.support.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
 
+    compile 'org.jetbrains:annotations-java5:15.0'
+//    def lifecycle_version = "1.1.1"
+//    compile "android.arch.lifecycle:runtime:$lifecycle_version"
 }

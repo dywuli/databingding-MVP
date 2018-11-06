@@ -2,6 +2,7 @@ package radio.media.eva.auto.vm.myapplication;
 
 import android.databinding.ViewDataBinding;
 
+import java.util.Collections;
 import java.util.List;
 
 import radio.media.eva.auto.vm.myapplication.model.TemperatureData;
@@ -13,6 +14,18 @@ import radio.media.eva.auto.vm.myapplication.common.MyBaseAdapter;
 
 public class MyAdapter extends MyBaseAdapter<MyAdapter.MyViewHolder> {
     private List<TemperatureData> data;
+
+    @Override
+    public void onItemDelete(int positon) {
+        data.remove(positon);
+        notifyItemRemoved(positon);
+    }
+
+    @Override
+    public void onMove(int fromPosition, int toPosition) {
+        Collections.swap(data,fromPosition,toPosition);//交换数据
+        notifyItemMoved(fromPosition,toPosition);
+    }
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and

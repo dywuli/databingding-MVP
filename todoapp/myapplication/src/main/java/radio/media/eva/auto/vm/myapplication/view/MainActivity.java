@@ -1,7 +1,11 @@
 package radio.media.eva.auto.vm.myapplication.view;
 
+import android.arch.lifecycle.Lifecycle;
+import android.arch.lifecycle.LifecycleOwner;
+import android.arch.lifecycle.LifecycleRegistry;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
@@ -14,7 +18,7 @@ import radio.media.eva.auto.vm.myapplication.common.MainActivityContract;
 import radio.media.eva.auto.vm.myapplication.databinding.ActivityMainBinding;
 import radio.media.eva.auto.vm.myapplication.presenter.MainActivityPresenter;
 
-public class MainActivity extends AppCompatActivity implements MainActivityContract.View {
+public class MainActivity extends AppCompatActivity implements MainActivityContract.View{
 
     ActivityMainBinding dataBinding;
     @Override
@@ -68,11 +72,18 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         TemperatureData temperatureData = new TemperatureData("Hamburg", "10");
         dataBinding.setTemp(temperatureData);
         dataBinding.setPresenter(mainActivityPresenter);
+
+
     }
 
     @Override
     public void showData(TemperatureData temperatureData) {
         String celsius = temperatureData.getCelsius();
         Toast.makeText(this, celsius, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void setView(MainActivityContract.Presenter presenter) {
+        getLifecycle().addObserver(presenter);
     }
 }
