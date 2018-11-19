@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.example.mvp.R;
 
 import com.example.mvplib.BaseMvpActivity;
 
@@ -21,7 +22,7 @@ public class MainActivity extends BaseMvpActivity<IActivityContract.MainModel, I
         btnFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SecondActivity.class));
+                //startActivity(new Intent(MainActivity.this, SecondActivity.class));
             }
         });
         init();
