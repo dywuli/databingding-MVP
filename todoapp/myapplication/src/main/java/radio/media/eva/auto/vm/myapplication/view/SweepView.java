@@ -1,9 +1,8 @@
-package com.ticauto.home.ui.view;
+package radio.media.eva.auto.vm.myapplication.view;
 
 import android.content.Context;
-import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
-import com.mobvoi.android.common.utils.LogUtil;
 
 
 /**
@@ -113,9 +111,9 @@ public class SweepView extends ViewGroup {
                 mVelocityTracker.computeCurrentVelocity(1000);
                 // Log velocity of pixels per second
                 xVelocity = mVelocityTracker.getXVelocity(pointerId);
-                LogUtil.d(TAG, ">>>>>>>ACTION_MOVE xVelocity " + xVelocity);
+                Log.d(TAG, ">>>>>>>ACTION_MOVE xVelocity " + xVelocity);
                 if (xVelocity >= X_VELOCITY_THRESHOLD) {
-                    LogUtil.d(TAG, ">>>>>>>ACTION_MOVE X_VELOCITY_THRESHOLD " + xVelocity);
+                    Log.d(TAG, ">>>>>>>ACTION_MOVE X_VELOCITY_THRESHOLD " + xVelocity);
                     smoothScrollTo(getChildAt(0).getMeasuredWidth(), 0);
                     mListener.onCardDelete();
                 } else {
@@ -124,12 +122,12 @@ public class SweepView extends ViewGroup {
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
-                LogUtil.d(TAG, ">>>>>>> ACTION_CANCEL ");
+                Log.d(TAG, ">>>>>>> ACTION_CANCEL ");
                 mVelocityTracker.recycle();
                 mVelocityTracker = null;
                 break;
             case MotionEvent.ACTION_UP:
-                LogUtil.d(TAG, ">>>>>>> ACTION_UP ");
+                Log.d(TAG, ">>>>>>> ACTION_UP ");
 //                mVelocityTracker.recycle();
 //                mVelocityTracker = null;
                 break;
