@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="voice.example.com.myapplication.MainActivity"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical">
+
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/record_long_view"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="20dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:background="@drawable/longrecord_bg"-->
+                <!--android:layout_gravity="center_horizontal"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/record_on_text"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/long_record_text"-->
+                <!--android:textColor="@android:color/black"-->
+                <!--android:textSize="35sp" />-->
+
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/record_short_view"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="100dp"-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_toRightOf="@id/record_long_view">-->
+
+            <!--<View-->
+                <!--android:layout_width="6dp"-->
+                <!--android:layout_height="10dp"-->
+                <!--android:background="@android:color/black"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:gravity="center_horizontal"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/record_off_text"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="@string/short_record_text"-->
+                <!--android:textColor="@color/blue"-->
+                <!--android:autoLink="all"-->
+                <!--android:textSize="28sp" />-->
+
+        <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp">
+
+        <LinearLayout
+            android:id="@+id/recording_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/short_record_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="27sp"
+                android:textColor="@android:color/black"
+                android:visibility="visible"/>
+
+
+            <com.ticauto.recordtool.recordwave.VoiceMicView
+                android:id="@+id/view_mic_wave"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center" />
+
+
+
+            <Chronometer
+                android:id="@+id/record_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="27sp"
+                android:format="00:00:00"
+                android:layout_marginTop="17dp"/>
+
+
+            <LinearLayout
+                android:id="@+id/record_bottom_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/record_view"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:id="@+id/record_note_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="27sp"
+                        android:text="下一条：我要打电话"
+                        android:visibility="invisible"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="@android:color/black"
+                        android:layout_toRightOf="@id/record_view"/>
+
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="40dp"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/record_play"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/record_play"
+                        android:textSize="28sp"
+                        android:visibility="gone"
+                        android:layout_marginRight="70dp"
+                        android:background="@drawable/text_bg"
+                        android:padding="3dp"
+                        android:textColor="@android:color/black"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/record_start"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/record_start"
+                        android:textSize="28sp"
+                        android:background="@drawable/text_bg"
+                        android:padding="3dp"
+                        android:textColor="@android:color/black"
+                        android:gravity="center_horizontal"/>
+
+                    <TextView
+                        android:id="@+id/rerecord"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rerecord"
+                        android:textSize="28sp"
+                        android:layout_marginLeft="70dp"
+                        android:visibility="gone"
+                        android:background="@drawable/text_bg"
+                        android:padding="3dp"
+                        android:textColor="@android:color/black"
+                        android:gravity="center_horizontal"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

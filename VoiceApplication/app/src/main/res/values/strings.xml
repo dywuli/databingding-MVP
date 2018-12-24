@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Voice Recorder</string>
+    <string name="action_settings">Settings</string>
+    <string name="long_record_text">长录音</string>
+    <string name="short_record_text">短录音</string>
+    <string name="record_start">开始</string>
+    <string name="record_finish">完成</string>
+    <string name="record_next">下一条</string>
+    <string name="record_play">播放</string>
+    <string name="record_stop">停止</string>
+    <string name="record_next_text">下一句</string>
+    <string name="rerecord">重录</string>
+    <string name="exit">退出</string>
+</resources>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="voice.example.com.myapplication.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/default_circle"
+        android:onClick="onClick"
+        android:src="@android:drawable/ic_menu_revert"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"/>
+    <TextView
+        android:id="@+id/txtType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/short_record_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:textSize="35dp"
+        android:textColor="@android:color/holo_blue_bright"/>
+    <Button
+        android:id="@+id/btnChMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/long_record_text"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+        android:textColor="@color/black"
+        android:onClick="onClick"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/curRecoder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/black"
+        android:textSize="25dp"/>
+
+    <voice.example.com.myapplication.recordwave.VoiceMicView
+        android:id="@+id/micView"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="140dp"/>
+    <Chronometer
+        android:id="@+id/record_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/micView"
+        android:layout_marginTop="20dp"
+        android:format="00:00:00"
+        android:textColor="@color/gray"
+        android:textSize="25dp"/>
+
+    <TextView
+        android:id="@+id/textNextRecoder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/record_time"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="80dp"
+        android:textColor="@color/gray"
+        android:textSize="25dp" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/layoutRecoder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="160dp"
+        android:visibility="gone">
+        <Button
+            android:id="@+id/btnPlay"
+            android:layout_width="@dimen/default_width"
+            android:layout_height="@dimen/default_height"
+            android:background="@drawable/default_circle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnNext"
+            android:layout_marginRight="@dimen/default_margin"
+            android:text="播放"/>
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="@dimen/default_width"
+            android:layout_height="@dimen/default_height"
+            android:background="@drawable/default_circle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="下一首"/>
+
+        <Button
+            android:id="@+id/btnRemake"
+            android:layout_width="@dimen/default_width"
+            android:layout_height="@dimen/default_height"
+            android:background="@drawable/default_circle"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btnNext"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:text="重录"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <Button
+        android:id="@+id/btnSpeakOnOff"
+        android:layout_width="@dimen/default_width"
+        android:layout_height="@dimen/default_height"
+        android:src="@android:drawable/ic_btn_speak_now"
+        android:background="@drawable/default_circle"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="160dp"
+        android:text="开始"/>
+    <Button
+        android:id="@+id/Stop"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/default_circle"
+        android:onClick="onClick"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="160dp"
+        android:layout_marginLeft="30dp"
+        android:text="停止"
+        android:visibility="gone"/>
+
+</android.support.constraint.ConstraintLayout>
