@@ -20,7 +20,7 @@ import java.util.List;
 
 public class FileOperation {
 
-    private static final String TAG = "VoiceUtil";
+    private static final String TAG = "RecorderVoice";
     private static RandomAccessFile mFile;
 
     private static boolean openFile(String path) {

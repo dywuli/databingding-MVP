@@ -3,12 +3,22 @@
     <string name="action_settings">Settings</string>
     <string name="long_record_text">长录音</string>
     <string name="short_record_text">短录音</string>
+    <string name="change_to_short_record_text">切换到短录音</string>
+    <string name="change_to_long_record_text">切换到长录音</string>
     <string name="record_start">开始</string>
     <string name="record_finish">完成</string>
     <string name="record_next">下一条</string>
     <string name="record_play">播放</string>
     <string name="record_stop">停止</string>
+    <string name="record_refresh">刷新</string>
     <string name="record_next_text">下一句</string>
     <string name="rerecord">重录</string>
     <string name="exit">退出</string>
+    <string name="genderSelect">性别:</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="ageSelect">年龄区间:</string>
+    <string name="record_age_16_to_30">16-30</string>
+    <string name="record_age_31_to_40">31-40</string>
+    <string name="record_age_41_to_50">41-50</string>
 </resources>
