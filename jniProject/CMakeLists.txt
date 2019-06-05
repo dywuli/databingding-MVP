@@ -76,7 +76,6 @@ add_subdirectory(${PATH_CORE})
 
 #aux_source_directory(src DIR_SRCS)
 #set(TEST_MATH ${DIR_SRCS})
-find_library(MODEL_SDS /home/liwu/Downloads/Test/libs/external_sdk/android/x86/libmobvoisds.so)
 set(ANDROID_LIBS_SRC ./src/record_jni_control.cc)
 add_library(record SHARED ${ANDROID_LIBS_SRC})
 
