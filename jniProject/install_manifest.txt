@@ -1,0 +1,1 @@
+/home/wuli/databingding-MVP/jniProject/target/./bin/Test

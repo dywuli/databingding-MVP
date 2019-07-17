@@ -8,10 +8,6 @@ set(PATH_LIBS ${CMAKE_SOURCE_DIR}/sources/libs)
 set(PATH_CORE ${PROJECT_SOURCE_DIR}/sources/core)
 set(ALL_LIBS CACHE INTERNAL "All libs to be linked in this project" )
 
-configure_file (
-     "${PROJECT_SOURCE_DIR}/TestConfig.h.in"
-     "${PROJECT_BINARY_DIR}/TestConfig.h"
-)
 message(STATUS "PATH_LIBS->" ${PATH_LIBS})
 set(PATH_DRAGONBALL ${PROJECT_SOURCE_DIR}/sources/dragonball/android/${ARCH})
 set(PATH_SDK_LIBS ${PATH_LIBS}/external_sdk/android/${ARCH}/)
@@ -72,17 +68,16 @@ list(APPEND ALL_LIBS
 # ======================================================================
 #                                Sub Directories
 # ======================================================================
-add_subdirectory(${PATH_CORE})
+#add_subdirectory(${PATH_CORE})
 
-#aux_source_directory(src DIR_SRCS)
-#set(TEST_MATH ${DIR_SRCS})
-set(ANDROID_LIBS_SRC ./src/record_jni_control.cc)
-add_library(record SHARED ${ANDROID_LIBS_SRC})
+aux_source_directory(main DIR_SRCS)
+set(TEST_MATH ${DIR_SRCS})
+#set(ANDROID_LIBS_SRC ./src/record_jni_control.cc)
+#add_library(record SHARED ${ANDROID_LIBS_SRC})
 
 message(STATUS "ALL_LIBS->" ${ALL_LIBS})
-set(CMAKE_CXX_FLAGS   "-g")  
-#add_executable (Test ${TEST_MATH})
-#install (TARGETS Test DESTINATION ./target/bin)
+add_executable (Test ${TEST_MATH})
+install (TARGETS Test DESTINATION ./bin)
 #install (FILES "${PROJECT_BINARY_DIR}/TestConfig.h" DESTINATION ./target/include)
-target_link_libraries(record ${ALL_LIBS})
-INSTALL (TARGETS record LIBRARY DESTINATION ./target/bin/libs)
+#target_link_libraries(record ${ALL_LIBS})
+#INSTALL (TARGETS record LIBRARY DESTINATION ./libs)

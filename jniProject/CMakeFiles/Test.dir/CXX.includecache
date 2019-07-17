@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wuli/databingding-MVP/jniProject/include/Base.h
+iostream
+-
+
+/home/wuli/databingding-MVP/jniProject/main/Base.cc
+../include/Base.h
+/home/wuli/databingding-MVP/jniProject/include/Base.h
+

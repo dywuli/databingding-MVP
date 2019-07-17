@@ -1,0 +1,7 @@
+/home/wuli/databingding-MVP/jniProject/CMakeFiles/install/strip.dir
+/home/wuli/databingding-MVP/jniProject/CMakeFiles/install/local.dir
+/home/wuli/databingding-MVP/jniProject/CMakeFiles/edit_cache.dir
+/home/wuli/databingding-MVP/jniProject/CMakeFiles/Test.dir
+/home/wuli/databingding-MVP/jniProject/CMakeFiles/rebuild_cache.dir
+/home/wuli/databingding-MVP/jniProject/CMakeFiles/list_install_components.dir
+/home/wuli/databingding-MVP/jniProject/CMakeFiles/install.dir

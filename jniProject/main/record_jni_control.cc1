@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <jni.h>
+// #include <jni.h>
 #include <android/log.h>
 // #include <boost/core/ignore_unused.hpp>
 #ifdef __cplusplus
