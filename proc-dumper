@@ -1,0 +1,111 @@
+#!/bin/sh
+
+function helpInfo() {
+  echo " ==============================================="
+  echo " dumpCmd [process key] [file name]"
+  echo "   -- process key: a key word of process name."
+  echo "   -- file name: a file name to save dump info."
+  echo " ==============================================="
+  exit 1
+}
+
+dump_proc=""
+dump_file=""
+dump_on_screen=""
+
+function dumpPsState() {
+  echo " >>>> dump process state >>>>" | tee -a $dump_file
+
+  if [ $dump_on_screen == "true" ]; then
+    adb shell ps -T -l | grep -E "$dump_proc| PPID " | tee -a $dump_file
+  else
+    adb shell ps -T -l | grep -E "$dump_proc| PPID " >> $dump_file
+  fi
+}
+
+function dumpThreadTrace() {
+  echo " >>>> dump threads trace >>>>" | tee -a $dump_file
+
+  if [ $dump_on_screen == "true" ]; then
+    adb shell debuggerd -b $dump_proc | tee -a $dump_file
+  else
+    adb shell debuggerd -b $dump_proc >> $dump_file
+  fi
+}
+
+function dumpIoState() {
+  echo " >>>> dump I/O state >>>>" | tee -a $dump_file
+
+  if [ $dump_on_screen == "true" ]; then
+    adb shell iotop -d 1 -m 30 -s read -s write -P -n 1 | tee -a $dump_file
+  else
+    adb shell iotop -d 1 -m 30 -s read -s write -P -n 1 >> $dump_file
+  fi
+}
+
+
+param_proc=""
+param_name=""
+
+if [ "$1" == "" ]; then
+  param_proc="voiceengine"
+  param_name="voiceengine"
+else
+  param_proc=$1
+  param_name=$2
+fi
+
+if [ "$param_proc" == "" ]; then
+  echo " error, no process key word."
+  helpInfo
+fi
+
+if [ "$param_name" == "" ]; then
+  echo "error, no file name."
+  helpInfo
+fi
+
+
+value_serial=""
+devices=$(adb devices | grep device$ | awk '{print $1}' | xargs echo)
+case ${#devices[@]} in
+    0 )
+        echo "can't found a android device!"
+        ;;
+    1 )
+        value_serial=$devices
+        ;;
+    * )
+        select value_serial in ${devices[@]}; do
+            break;
+        done
+        ;;
+esac
+
+if [[ $value_serial == "" ]]; then
+    echo "Not select a android device, exit not"
+    exit 1
+fi
+
+#echo "value_serial=$value_serial"
+
+adb -s $value_serial root
+adb wait-for-device
+adb -s $value_serial remount
+adb wait-for-device
+
+proc_sections=$(adb -s $value_serial shell ps | grep -E "$param_proc" | awk '{print $2}')
+proc=`echo $proc_sections | cut -d \n -f 1`
+
+#echo "proc=$proc"
+
+
+
+dump_file=$param_name.debugger
+dump_proc=$proc
+dump_on_screen=false
+
+echo "============================ Start dumper =============================" | tee -a $dump_file
+dumpPsState
+dumpThreadTrace
+dumpIoState
